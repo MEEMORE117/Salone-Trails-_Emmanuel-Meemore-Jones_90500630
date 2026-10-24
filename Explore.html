@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore | Salone Trails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html"><i class="fa-solid fa-compass"></i> Salone Trails</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="explore.html" class="active">Explore</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner">
+      <span class="eyebrow">Find your next stop</span>
+      <h1>Explore Destinations</h1>
+    </section>
+
+    <section class="explore">
+      <div class="search-row">
+        <label class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" id="search" placeholder="Search places" aria-label="Search places">
+        </label>
+        <button class="all-btn active" id="allBtn"><i class="fa-solid fa-table-cells-large"></i> All</button>
+      </div>
+
+      <div class="chips">
+        <button class="chip" data-cat="beaches">Beaches</button>
+        <button class="chip" data-cat="wildlife">Wildlife</button>
+        <button class="chip" data-cat="history">History</button>
+        <button class="chip" data-cat="mountain">Mountain</button>
+      </div>
+
+      <div class="dest-grid" id="destGrid">
+
+        <article class="dest" data-cat="beaches" data-name="Tokeh Beach">
+          <div class="dest-img" style="background-image:url('images/tokeh.jpg')">
+            <button class="save" aria-label="Save Tokeh Beach"><i class="fa-regular fa-bookmark"></i></button>
+            <span class="tag">Beaches</span>
+          </div>
+          <div class="dest-body">
+            <h3>Tokeh Beach</h3>
+            <p>Calm white sand south of Freetown. Good for swimming and fresh seafood.</p>
+          </div>
+        </article>
+
+        <article class="dest" data-cat="mountain" data-name="Loma Mountain">
+          <div class="dest-img" style="background-image:url('images/loma.jpg')">
+            <button class="save" aria-label="Save Loma Mountain"><i class="fa-regular fa-bookmark"></i></button>
+            <span class="tag">Mountain</span>
+          </div>
+          <div class="dest-body">
+            <h3>Loma Mountain</h3>
+            <p>The highest peak in Sierra Leone, with forest hikes and wide views.</p>
+          </div>
+        </article>
+
+        <article class="dest" data-cat="wildlife" data-name="Tacugama">
+          <div class="dest-img" style="background-image:url('images/tacugama.jpg')">
+            <button class="save" aria-label="Save Tacugama"><i class="fa-regular fa-bookmark"></i></button>
+            <span class="tag">Wildlife</span>
+          </div>
+          <div class="dest-body">
+            <h3>Tacugama</h3>
+            <p>A chimpanzee sanctuary in the hills above Freetown. Book a guided visit.</p>
+          </div>
+        </article>
+
+        <article class="dest" data-cat="beaches" data-name="River No.2">
+          <div class="dest-img" style="background-image:url('images/river2.jpg')">
+            <button class="save" aria-label="Save River No.2"><i class="fa-regular fa-bookmark"></i></button>
+            <span class="tag">Beaches</span>
+          </div>
+          <div class="dest-body">
+            <h3>River No.2</h3>
+            <p>A wide river-mouth beach with clear water and a relaxed local feel.</p>
+          </div>
+        </article>
+
+        <article class="dest" data-cat="history" data-name="Banana Island">
+          <div class="dest-img" style="background-image:url('images/banana.jpg')">
+            <button class="save" aria-label="Save Banana Island"><i class="fa-regular fa-bookmark"></i></button>
+            <span class="tag">History</span>
+          </div>
+          <div class="dest-body">
+            <h3>Banana Island</h3>
+            <p>A quiet island with colonial-era ruins, a short boat ride from the coast.</p>
+          </div>
+        </article>
+
+        <article class="dest" data-cat="history" data-name="Bunce Island">
+          <div class="dest-img" style="background-image:url('images/bunce.jpg')">
+            <button class="save" aria-label="Save Bunce Island"><i class="fa-regular fa-bookmark"></i></button>
+            <span class="tag">History</span>
+          </div>
+          <div class="dest-body">
+            <h3>Bunce Island</h3>
+            <p>A historic slave-trade fort in the Sierra Leone River, open for guided tours.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="empty" id="empty" hidden>No places match your search. Try another name or choose All.</p>
+
+      <div class="center">
+        <button class="btn btn-dark" id="viewSaved"><i class="fa-solid fa-bookmark"></i> View saved trip</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pop-up for the saved trip -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h2 id="modalTitle">Your saved trip</h2>
+      <ul id="savedList"></ul>
+      <a class="btn btn-green" href="contact.html">Send this trip as an inquiry</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>
+      <a class="logo" href="index.html"><i class="fa-solid fa-compass"></i> Salone Trails</a>
+      <p class="tagline">Your guide to Sierra Leone.</p>
+    </div>
+    <div class="footer-icons">
+      <a href="https://wa.me/032095497" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="mailto:emmanuelmeemore@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+      <a href="tel:+032095497" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+    </div>
+    <p class="copyright">&copy; 2026 Salone Trails. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
